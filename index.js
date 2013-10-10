@@ -116,25 +116,14 @@ module.exports = function (username) {
   }
 
   function renderTweets(el) {
-    var url = '/1.1/statuses/user_timeline.json';
-
-    request(url)
-    .query({
-      screen_name: my.username,
-      count: my.count,
-      trim_user: 1,
-      include_entities: 1
-    })
-    .end(function(res) {
-      if (!res.ok) {
-        return;
-      }
-      var tweets = res.body.map(function(tweet) {
-        return parseTweet(tweet, my.username);
+    var url = "/tweets"
+    request.get(url,function(res) {
+        var tweets = res.body.map(function(tweet) {
+          return parseTweet(tweet, my.username);
+        });
+        el.innerHTML = require('./template');
+        render(el.querySelector('.timeline'), tweets);
       });
-      el.innerHTML = require('./template');
-      render(el.querySelector('.timeline'), tweets);
-    });
   }
 
   self = {
