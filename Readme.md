@@ -1,10 +1,15 @@
 
 # twitter-timeline
 
-Displays twitter timeline similarly to twitter widget but without iframe and with more flexible
-styling options.
+Displays twitter timeline similarly to twitter widget but without iframe
+and with more flexible styling options.
 
-See [Furkot Help](http://help.furkot.com) to see in action.
+Forked from
+[code42day/twitter-timeline](https://github.com/code42day/twitter-timeline).
+
+See [Activimetrics](http://www.activimetrics.com) to see in action.
+
+See [Furkot Help](http://help.furkot.com/) to original version in action.
 
 ## Installation
 
