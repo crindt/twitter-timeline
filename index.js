@@ -104,9 +104,10 @@ function parseTweet(tweet, username) {
   return parsed;
 }
 
-module.exports = function (username) {
+module.exports = function (username, proxyUrl) {
   var self, my = {
     username: username,
+    proxyUrl: proxyUrl || '/tweets',  // Assume uri if not specified
     count: 10
   };
 
@@ -116,8 +117,7 @@ module.exports = function (username) {
   }
 
   function renderTweets(el) {
-    var url = "/tweets"
-    request.get(url,function(res) {
+    request.get(my.proxyUrl,function(res) {
         var tweets = res.body.map(function(tweet) {
           return parseTweet(tweet, my.username);
         });

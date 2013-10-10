@@ -23,8 +23,13 @@ To use twitter timeline specify the element in which it needs to be rendered and
 var tt = require('twitter-timeline'),
 el = document.getElementById('tt');
 // render twitter for username furkot
-tt('furkot').render(el);
+tt('furkot','/tweets').render(el);
 ```
+
+The second parameter to `tt` is optional, and specifies the url to use to access the twitter feed.
+This url should essentially proxy the twitter timeline using back-end authentication to gain access.
+For instance, your server could use [NTwitter](https://github.com/AvianFlu/ntwitter) on the backend
+to proxy the feed.
 
 By default 10 latest tweets are rendered. It can be changed using count method
 
