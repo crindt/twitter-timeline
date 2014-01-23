@@ -26,7 +26,7 @@ function createTextAdjustment(opt) {
 }
 
 function parseHashtags(entities, parsed) {
-  if(!entities.hashtags) {
+  if(!entities || !entities.hashtags) {
     return;
   }
   entities.hashtags.forEach(function(tag) {
@@ -40,7 +40,7 @@ function parseHashtags(entities, parsed) {
 }
 
 function parseUserMentions(entities, parsed) {
-  if(!entities.user_mentions) {
+  if(!entities || !entities.user_mentions) {
     return;
   }
   entities.user_mentions.forEach(function(mention) {
@@ -54,7 +54,7 @@ function parseUserMentions(entities, parsed) {
 }
 
 function parseMedia(entities, parsed) {
-  if(!entities.media) {
+  if(!entities || !entities.media) {
     return;
   }
   entities.media.forEach(function(media) {
@@ -73,7 +73,7 @@ function parseMedia(entities, parsed) {
 }
 
 function parseUrls(entities, parsed) {
-  if(!entities.urls) {
+  if(!entities || !entities.urls) {
     return;
   }
   entities.urls.forEach(function(url) {
